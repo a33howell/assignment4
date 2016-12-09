@@ -87,9 +87,9 @@ int main(int argc, char* argv[]) {
 		fread(meta, 1, sizeof(header), inFile);				// Initial header information is written into outfile 
 		fwrite(meta, 1, sizeof(*meta), outfile);
 
-		std::vector<std::vector<short int>> resultX;		// Data from Input and IR files is read into short int vectors
+		std::vector<short int> resultX;		// Data from Input and IR files is read into short int vectors
 		std::vector<size_t> nbValuesX;
-		std::vector<std::vector<short int>> resultH;
+		std::vector<short int> resultH;
 		std::vector<size_t> nbValuesH;
 		resultX = readWav(inFile);				// See "Conversions.cpp" for code
 		resultH = readWav(irFile);				// See "Conversions.cpp" for code
