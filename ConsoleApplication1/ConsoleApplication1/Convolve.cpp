@@ -6,6 +6,7 @@
 #include <time.h>
 #include <cstdio>
 #include "Conversions.h"
+#include "FFT.h"
 
 using namespace std;
 
@@ -102,10 +103,26 @@ int main(int argc, char* argv[]) {
 		// Convolution occurs (See "Conversions.cpp" for code)
 		int xLength = x.size();
 		int hLength = h.size();
-		convolve(x, xLength, h, hLength, y, xLength + hLength - 1);
+
+		// Padding the smaller array with zeroes
+		if (xLength > hLength) {
+			padding(h, (2 * xLength) - hLength);
+			padding(x, xLength);
+			padding(y, (2 * xLength));
+		} else if (hLength > xLength) {
+			padding(x, (2 * hLength) - xLength);
+			padding(h, hLength);
+			padding(y, (2 * hLength));
+		} else {
+			padding(x, hLength);
+			padding(h, hLength);
+			padding(y, (2 * hLength));
+		}
+
+
 		cout << "Convolution complete" << endl;
 
-		for (int i = 0; i < y.size(); i++) {				// Data is converted back into short ints and written into outfile
+		for (int i = 0; i < y.size()/2; i++) {				// Data is converted back into short ints and written into outfile
 			short int num = (short int) y[i];
 			fwrite(&num, 1, 16, outfile);
 		}

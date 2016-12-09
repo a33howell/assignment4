@@ -24,28 +24,9 @@ std::vector<double> shortToDoubleVectorConversion(std::vector<std::vector<short 
 
 
 
-/* Code copied from "convolve.c" example on d2l */
-void convolve(std::vector<double> & x, int N, std::vector<double> & h, int M, std::vector<double> & y, int P) {
-	int n, m;
-
-	/* Make sure the output buffer is the right size: P = N + M - 1 */
-	if (P != (N + M - 1)) {
-		printf("Invalid inputs for convolve\n");
-		return;
-	}
-
-	/* Clear the output buffer y[] to all zero values */
-	for (n = 0; n < P; n++)
-		y.push_back(0.0);
-
-	/* Do the convolution */
-	/* Outer loop: process each input value x[n] in turn */
-	for (n = 0; n < N; n++) {
-		/* Inner loop: process x[n] with each sample of h */
-		cout << "N = " << N << ", n = " << n << endl;
-		for (m = 0; m < M; m++)
-			y[n + m] += x[n] * h[m];
-	}
+void padding(std::vector<double> & x, int N) {
+	for (int n = 0; n < N; n++)
+		x.push_back(0.0);
 }
 
 
