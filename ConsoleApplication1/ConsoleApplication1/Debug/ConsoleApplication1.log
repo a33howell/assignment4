@@ -1,0 +1,6 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (ConsoleApplication1.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Convolve.cpp
+c:\users\andrew\documents\github\501a4\consoleapplication1\consoleapplication1\convolve.cpp(108): warning C4018: '<': signed/unsigned mismatch
+c:\users\andrew\documents\github\501a4\consoleapplication1\consoleapplication1\convolve.cpp(80): warning C4101: 'buff16': unreferenced local variable
+  ConsoleApplication1.vcxproj -> C:\Users\Andrew\Documents\GitHub\501a4\ConsoleApplication1\Debug\Convolve.exe
+  ConsoleApplication1.vcxproj -> C:\Users\Andrew\Documents\GitHub\501a4\ConsoleApplication1\Debug\Convolve.pdb (Full PDB)
